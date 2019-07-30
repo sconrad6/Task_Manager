@@ -38,5 +38,12 @@ namespace Task_Manager
             int num = TaskTest.UserDeletionChoice();
             taskList.RemoveAt(num);
         }
+
+        public static void DisplayOne()
+        {
+            int number = TaskTest.UserViewChice();
+            Console.WriteLine(taskList[number - 1]);
+            
+        }
     }
 }

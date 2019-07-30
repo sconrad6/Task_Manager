@@ -20,6 +20,7 @@ namespace Task_Manager
                 $"\"Add\" to add a task to the list\n" +
                 $"\"Complete\" to mark a task as complete\n" +
                 $"\"Delete\" to delete a task\n" +
+                $"\"Show\" to show a selected task\n" +
                 $"\"Exit\" to exit");
             string userChoice = Console.ReadLine().ToLower();
 
@@ -37,6 +38,9 @@ namespace Task_Manager
                     break;
                 case "delete":
                     TaskManager.DeleteTask();
+                    break;
+                case "show":
+                    TaskManager.DisplayOne();
                     break;
                 case "exit":
                     Console.WriteLine("Goodbye!");
@@ -111,6 +115,12 @@ namespace Task_Manager
             } while (!TaskValidator.LetterValidator(userInput));
 
             return userNumber;
+        }
+
+        public static int UserViewChice()
+        {
+            Console.WriteLine("Which team member's task would you like to see? Please enter the task number");
+            return int.Parse(Console.ReadLine());
         }
     }
 }
